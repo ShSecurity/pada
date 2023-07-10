@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(136, 139, 220);
+  }
+  
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    text-align: center;
+  }
+  
+  .title {
+    margin: 0;
+    font-size: 24px;
+    color: rgb(102, 1, 1);
+    border-bottom: solid 2px red;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+  }
+  
+  .profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .user-details {
+    flex: 1;
+  }
+  
+  .name {
+    margin: 0;
+    font-size: 20px;
+    color: rgb(12, 11, 33);
+  }
+  
+  .info {
+    margin: 0;
+    font-size: 16px;
+    color: rgb(65, 65, 61);
+  }
+  
+  .balance {
+    margin-top: 30px;
+    text-align: center;
+    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  }
+  
+  .balance-title {
+    margin: 0;
+    font-size: 20px;
+    color: rgb(7, 49, 133);
+  }
+  
+  .balance-amount {
+    width: 50%;
+    margin: 10px 0;
+    font-size: 24px;
+    border:solid 2px rgb(7, 59, 4);
+    border-radius: 10px;
+    color: rgb(14, 102, 6);
+  }
+  
+  .transactions {
+    margin-top: 30px;
+  }
+  
+  .transactions-title {
+    margin: 0;
+    font-size: 20px;
+    color: rgb(1, 1, 255);
+  }
+  
+  .transactions-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .transaction-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .transaction-details {
+    flex: 1;
+  }
+  
+  .transaction-date {
+    margin: 0;
+    font-size: 16px;
+    color: rgb(173, 173, 134);
+  }
+  
+  .transaction-description {
+    margin: 0;
+    font-size: 16px;
+    color: black;
+  }
+  
+  .transaction-amount {
+    margin: 0;
+    font-size: 16px;
+    color: rgb(193, 14, 14);
+  }
+  

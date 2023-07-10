@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ponte al día ya</title>
+  <link rel="stylesheet" type="text/css" href="/estilos/styleCrearClave.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <h2>Ingresa tu clave</h2>
+    <br>
+    <div class="circle-container">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+    <div class="keypad">
+      <div class="keypad-row" style="--order-1: var(--order-1);">
+        <button class="keypad-button">1</button>
+        <button class="keypad-button">2</button>
+        <button class="keypad-button">3</button>
+      </div>
+      <div class="keypad-row" style="--order-2: var(--order-2);">
+        <button class="keypad-button">4</button>
+        <button class="keypad-button">5</button>
+        <button class="keypad-button">6</button>
+      </div>
+      <div class="keypad-row" style="--order-3: var(--order-3);">
+        <button class="keypad-button">7</button>
+        <button class="keypad-button">8</button>
+        <button class="keypad-button">9</button>
+      </div>
+      <div class="keypad-row" style="--order-4: var(--order-4);">
+        <button class="keypad-button" id="button-clear">←</button>
+        <button class="keypad-button">0</button>
+        <button class="keypad-button" id="button-submit">✓</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function shuffleButtons() {
+      var keypadButtons = document.querySelectorAll('.keypad-button:not(#button-clear):not(#button-submit)');
+      var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+      var order = [];
+
+      while (numbers.length > 0) {
+        var randomIndex = Math.floor(Math.random() * numbers.length);
+        var randomNumber = numbers.splice(randomIndex, 1)[0];
+        order.push(randomNumber);
+      }
+
+      keypadButtons.forEach(function(button, index) {
+        button.textContent = order[index];
+      });
+    }
+
+    shuffleButtons();
+
+    var circles = document.querySelectorAll('.circle');
+    var currentDigit = 0;
+    var enteredDigits = [];
+
+    function updateCircles() {
+      for (var i = 0; i < circles.length; i++) {
+        if (i < currentDigit) {
+          circles[i].classList.add('filled');
+        } else {
+          circles[i].classList.remove('filled');
+        }
+      }
+    }
+
+    function handleButtonClick(event) {
+      var button = event.target;
+      var digit = button.textContent;
+
+      if (digit === '←') {
+        if (currentDigit > 0) {
+          currentDigit--;
+          enteredDigits.pop();
+          updateCircles();
+        }
+      } else if (digit === '✓') {
+        if (currentDigit === circles.length) {
+          var storedKey = localStorage.getItem('clave');
+          var enteredKey = enteredDigits.join('');
+
+          if (storedKey === enteredKey) {
+            window.location.href = "pada.html";
+            alert('Sesión iniciada.');
+          } else {
+            enteredDigits = [];
+            currentDigit = 0;
+            updateCircles();
+            alert('Clave incorrecta. Inténtalo nuevamente.');
+          }
+        }
+      } else {
+        if (currentDigit < circles.length) {
+          currentDigit++;
+          enteredDigits.push(digit);
+          updateCircles();
+        }
+      }
+    }
+
+    var keypadButtons = document.querySelectorAll('.keypad-button');
+    keypadButtons.forEach(function(button) {
+      button.addEventListener('click', handleButtonClick);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ponte al día ya</title>
+  <link rel="stylesheet" type="text/css" href="/estilos/styleCrear.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="inicio.html">&#8249;</a>
+      <h1>CREA TU CUENTA</h1>
+    </div>
+    <h2>Registro de celular</h2>
+    <p>Te enviaremos un código de verificación</p>
+    <input type="number" placeholder="Número de celular" id="celular" required>
+    <h2>Registra tus datos</h2>
+    <div class="documento">
+      <select id="tipoDocumento" required>
+        <option value="" disabled selected>Tipo de documento</option>
+        <option value="dni">DNI</option>
+        <option value="pasaporte">Pasaporte</option>
+        <option value="otro">Otro</option>
+      </select>
+      <i class="fas fa-id-card"></i>
+    </div>
+    <input type="number" placeholder="Nº documento" id="numDocumento" required>
+    <input type="email" placeholder="Correo Electrónico" id="correo" required>
+    <button id="continuar">CONTINUAR</button>
+  </div>
+
+  <script>
+    document.getElementById('continuar').addEventListener('click', function() {
+      var celular = document.getElementById('celular').value;
+      var tipoDocumento = document.getElementById('tipoDocumento').value;
+      var numDocumento = document.getElementById('numDocumento').value;
+      var correo = document.getElementById('correo').value;
+
+      // Verificar si todos los campos están completados
+      if (celular === "" || tipoDocumento === "" || numDocumento === "" || correo === "") {
+        alert("Por favor, completa todos los campos del formulario.");
+        return;
+      }
+      
+      // Almacena los datos en el almacenamiento del navegador
+      localStorage.setItem('celular', celular);
+      localStorage.setItem('tipoDocumento', tipoDocumento);
+      localStorage.setItem('numDocumento', numDocumento);
+      localStorage.setItem('correo', correo);
+      
+      alert("El número " + celular + " fue correctamente verificado.");
+      alert("El correo " + correo + " fue verificado.");
+      window.location.href = "crearClave.html";
+    });
+
+  </script>
+</body>
+</html>

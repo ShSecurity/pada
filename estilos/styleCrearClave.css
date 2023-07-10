@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: rgb(136, 139, 220);
+  }
+  .container {
+    text-align: center;
+    max-width: 320px;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .header a {
+    margin-right: 0px;
+    
+    font-size: 28px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    color: beige;
+    background-color: blue;
+    width: 25px;
+    border-radius: 40%;
+  }
+  
+  h1 {
+    margin: 0;
+    color: white;
+    font-size: 24px;
+    text-align: left;
+  }
+  
+  h2 {
+    color: white;
+    font-size: 20px;
+    margin-top: 30px;
+    text-align: left;
+  }
+  
+  .subheading {
+    color: rgb(221, 195, 195);
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+
+  }
+  
+  .circle-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .circle.filled {
+    background-color: rgb(144, 144, 139);
+  }
+  
+  .keypad {
+    margin-bottom: 20px;
+  }
+  
+  .keypad-row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .keypad-button {
+    display: inline-block;
+    margin: 5px;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(144, 144, 139);
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+  
+  .keypad-row:nth-child(1) {
+    order: var(--order-1);
+  }
+  
+  .keypad-row:nth-child(2) {
+    order: var(--order-2);
+  }
+  
+  .keypad-row:nth-child(3) {
+    order: var(--order-3);
+  }
+  
+  .keypad-row:nth-child(4) {
+    order: var(--order-4);
+  }
+  
+  button#button-submit {
+    background-color: rgb(82, 174, 74);
+  }
+  
+  button#button-submit:hover {
+    background-color: rgb(138, 214, 133);
+  }
+  
+  button#button-clear {
+    background-color: rgb(255, 0, 0);
+  }
+  
+  button#button-clear:hover {
+    background-color: rgb(255, 85, 85);
+  }
+  
+  button.keypad-button:disabled {
+    background-color: rgb(234, 242, 234);
+    color: black;
+  }

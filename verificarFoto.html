@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ponte al día ya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/estilos/styleVerificarFoto.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Verificación facial</h2>
+    <p>Por seguridad, validaremos tus datos mediante una foto a tu DNI y un selfie</p>
+
+    <div class="step">
+      <div class="step-content">
+        <h3>Primer paso:</h3>
+        <p>DNI por delante</p>
+      </div>
+      <div class="image-example">
+        <img src="/img/dni.png" width="45px" height="50px">
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-content">
+        <h3>Segundo paso:</h3>
+        <p>DNI por atrás</p>
+      </div>
+      <div class="image-example">
+        <img src="/img/dni.png"  width="45px" height="50px" >
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-content">
+        <h3>Tercer paso:</h3>
+        <p>Tómate una selfie</p>
+      </div>
+      <div class="image-example">
+        <img src="/img/selfie.png"  width="45px" height="50px">
+      </div>
+    </div>
+
+    <button id="verificarButton">Terminar</button>
+  </div>
+
+  <script>
+    var steps = document.getElementsByClassName("step");
+    var verificarButton = document.getElementById("verificarButton");
+
+    verificarButton.addEventListener("click", function() {
+      var completed = true;
+
+      for (var i = 0; i < steps.length; i++) {
+        if (!steps[i].classList.contains("completed")) {
+          completed = false;
+          break;
+        }
+      }
+
+      if (completed) {
+        alert("CREACION DE CUENTA COMPLETADO...")
+        window.location.href = "inicio.html"; 
+      }
+    });
+
+    for (var i = 0; i < steps.length; i++) {
+      steps[i].addEventListener("click", function() {
+        this.classList.toggle("completed");
+      });
+    }
+  </script>
+</body>
+</html>
