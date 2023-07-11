@@ -25,12 +25,10 @@
       <h2 class="balance-title">Saldo</h2>
       <p class="balance-amount">S/ 99.00</p>
     </div>
-    <div class="transactions">
-      <h2 class="transactions-title">Últimas Transacciones</h2>
-      <ul class="transactions-list" id="transactions-list">
-        <!-- Los elementos de la lista serán agregados dinámicamente con JavaScript -->
-      </ul>
-    </div>
+    <button class="button" style="background-color: gray; color: white; padding: 10px 20px; border: none; cursor: pointer;">Calendario</button>
+    <button class="button" style="background-color: gray; color: white; padding: 10px 20px; border: none; cursor: pointer;">Subir una foto de tu objetivo a vender</button>
+
+    
   </div>
 
   <script>
@@ -44,48 +42,14 @@
         correo: localStorage.getItem("correo")
       };
 
-      // Actualizar los elementos del DOM con los datos almacenados
       document.getElementById("name").textContent = storedData.nombre + " " + storedData.apellidoPaterno + " " + storedData.apellidoMaterno;
       document.getElementById("cellphone").textContent = "Celular: " + storedData.celular;
       document.getElementById("dni").textContent = "DNI: " + storedData.numDocumento;
       document.getElementById("email").textContent = "Correo: " + storedData.correo;
 
-      // Crear las transacciones de ejemplo (puedes reemplazarlas con datos reales)
-      var transactions = [
-        { date: "12/07/2023", description: "Pago de servicios", amount: "50.00" },
-        { date: "11/07/2023", description: "Transferencia recibida", amount: "25.00" },
-        { date: "10/07/2023", description: "Recarga celular", amount: "10.00" }
-      ];
+      
 
-      var transactionsList = document.getElementById("transactions-list");
-
-      transactions.forEach(function(transaction) {
-        var listItem = document.createElement("li");
-        listItem.className = "transaction-item";
-
-        var transactionDetails = document.createElement("div");
-        transactionDetails.className = "transaction-details";
-
-        var transactionDate = document.createElement("p");
-        transactionDate.className = "transaction-date";
-        transactionDate.textContent = transaction.date;
-
-        var transactionDescription = document.createElement("p");
-        transactionDescription.className = "transaction-description";
-        transactionDescription.textContent = transaction.description;
-
-        transactionDetails.appendChild(transactionDate);
-        transactionDetails.appendChild(transactionDescription);
-
-        var transactionAmount = document.createElement("p");
-        transactionAmount.className = "transaction-amount";
-        transactionAmount.textContent = "S/ " + transaction.amount;
-
-        listItem.appendChild(transactionDetails);
-        listItem.appendChild(transactionAmount);
-
-        transactionsList.appendChild(listItem);
-      });
+      
     });
   </script>
 </body>
